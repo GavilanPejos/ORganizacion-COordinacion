@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="email">Email</string>
+    <string name="EmailHint">Tu correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="hola_de_nuevo">¡Hola de nuevo!</string>
+</resources>

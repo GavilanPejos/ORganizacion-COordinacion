@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ORganizacionCOordinacion" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/NOC_PRIMARIO</item>
+        <item name="colorPrimaryVariant">@color/NOC_SECUNDARIO</item>
+        <item name="colorOnPrimary">@color/COM_NEGRO</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/NOC_TERCIARIO</item>
+        <item name="colorSecondaryVariant">@color/NOC_STATUS</item>
+        <item name="colorOnSecondary">@color/COM_NEGRO</item>
+        <item name="customColorDrawableValue">@color/NOC_CIRCLE</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorSecondaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="font">@font/simplysans</item>
+        <item name="editTextBackground">@drawable/custom_input_night</item>
+        <item name="background">@drawable/custom_button_night</item>
+        <item name="icon">@drawable/logoblancoa</item>
+
+    </style>
+
+    <style name="ThemeOverlay.ORganizacionCOordinacion.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/DIU_SECUNDARIO</item>
+        <item name="fullscreenTextColor">@color/DIU_STATUS</item>
+    </style>
+</resources>

@@ -1,0 +1,19 @@
+<resources>
+
+    <style name="Widget.Theme.ORganizacionCOordinacion.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/DIU_SECUNDARIO</item>
+    </style>
+
+    <style name="Widget.Theme.ORganizacionCOordinacion.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/DIU_SECUNDARIO</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+    <style name="CustomButtonDIU" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:textColor">@color/COM_NEGRO</item>
+    </style>
+    <style name="CustomButtonNOC" parent="Widget.MaterialComponents.Button">
+        <item name="background">@drawable/custom_button_night</item>
+        <item name="android:textColor">@color/COM_BLANCO</item>
+    </style>
+</resources>

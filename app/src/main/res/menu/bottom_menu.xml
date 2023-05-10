@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/MENUBTN_CUENTA"
+        android:icon="@drawable/baseline_person_24"
+        android:title="Cuenta" />
+    <item
+        android:id="@+id/MENUBTN_CHAT"
+        android:icon="@drawable/baseline_chat_24"
+        android:title="Chat" />
+    <item
+        android:id="@+id/MENUBTN_GPS"
+        android:icon="@drawable/baseline_map_24"
+        android:title="Localizador" />
+    <item
+        android:id="@+id/MENUBTN_INFO"
+        android:icon="@drawable/baseline_info_24"
+        android:title="Horarios" />
+</menu>

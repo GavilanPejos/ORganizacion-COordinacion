@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores en el modo diurno -->
+    <color name="DIU_PRIMARIO">#F0F4F3</color>
+    <color name="DIU_SECUNDARIO">#50C2C9</color>
+    <color name="DIU_TERCIARIO">#C4C4C4</color>
+    <color name="DIU_STATUS">#50C2C9</color>
+    <color name="DIU_CIRCLE">#61aaae</color>
+
+
+    <!-- Colores en el modo nocturno -->
+    <color name="NOC_PRIMARIO">#1c1c1c</color>
+    <color name="NOC_SECUNDARIO">#9b111e</color>
+    <color name="NOC_TERCIARIO">#232323</color>
+    <color name="NOC_STATUS">#efb810</color>
+    <color name="NOC_CIRCLE">#dbae24</color>
+
+    <!-- Colores Comunes -->
+    <color name="COM_NEGRO">#FF000000</color>
+    <color name="COM_BLANCO">#FFFFFFFF</color>
+    <color name="lavender">#8692f7</color>
+    <color name="grey">#d2d2d2</color>
+
+
+</resources>
