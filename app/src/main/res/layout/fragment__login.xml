@@ -38,6 +38,7 @@
 
         <EditText
             android:background="?attr/editTextBackground"
+            android:textColor="@color/NOC_TERCIARIO"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:hint="@string/EmailHint"
@@ -69,6 +70,7 @@
         <EditText
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
+            android:textColor="@color/NOC_TERCIARIO"
             android:background="?attr/editTextBackground"
             android:hint="@string/YOurPass"
             android:id="@+id/FLET_Password"

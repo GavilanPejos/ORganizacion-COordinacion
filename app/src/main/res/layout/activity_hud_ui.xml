@@ -7,14 +7,13 @@
     android:layout_height="match_parent"
     tools:context="UI.Activities.HUDUserInterface">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logonegrob" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/gps_fragment"
+        android:name="UI.Fragments.FragmentGPS"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_g_p_s"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/HUBN_MENU"
         android:layout_width="match_parent"

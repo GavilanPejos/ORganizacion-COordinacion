@@ -40,7 +40,7 @@ public class HUDLogin extends AppCompatActivity {
         Intent startIntent = new Intent(getApplicationContext(), BackgroundMusic.class);
         startService(startIntent);
         //Reproduce la música de fondo
-        reproducir();
+      //  reproducir();
     }
 
     //Reproductor de música de fondo
@@ -52,13 +52,10 @@ public class HUDLogin extends AppCompatActivity {
             //Establece que la música no se repita
             mediaPlayer.setLooping(false);
             //Establece un Listener para detectar cuando la música ha terminado de reproducirse
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    //Libera el objeto MediaPlayer
-                    mediaPlayer.release();
-                    mediaPlayer = null;
-                }
+            mediaPlayer.setOnCompletionListener(mp -> {
+                //Libera el objeto MediaPlayer
+                mediaPlayer.release();
+                mediaPlayer = null;
             });
             //Inicia la reproducción de la música
             mediaPlayer.start();

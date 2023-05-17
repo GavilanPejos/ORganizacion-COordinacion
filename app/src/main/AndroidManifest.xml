@@ -3,9 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:usesCleartextTraffic="true">
     <!--Mio, lo que permite tener acceso a internet-->
-
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--Mio, lo que permite tener acceso a internet-->
+    <!--Mio, lo que da permiso a localización-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,6 +20,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ORganizacionCOordinacion"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDsmYY4Dj5NsySwgvq2-2xwXTXhqVu6alY" />
+
         <activity
             android:name="UI.Activities.HUDUserInterface"
             android:exported="false" />
@@ -35,8 +42,7 @@
             android:name="UI.Activities.IntroAct"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
-            android:label="@string/title_activity_intro"
-             />
+            android:label="@string/title_activity_intro" />
         <!--Uso de librerias externas-->
         <uses-library
             android:name="org.apache.http.legacy"

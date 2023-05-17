@@ -14,8 +14,9 @@
         <item name="android:statusBarColor">?attr/colorSecondaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="font">@font/simplysans</item>
-        <item name="editTextBackground">@drawable/custom_input_night</item>
-        <item name="background">@drawable/custom_button_night</item>
+
+        <item name="editTextBackground">@drawable/custom_input</item>
+        <item name="background">@drawable/custom_button</item>
         <item name="icon">@drawable/logoblancoa</item>
 
     </style>

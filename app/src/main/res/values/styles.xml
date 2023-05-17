@@ -12,8 +12,5 @@
         <item name="android:background">@drawable/custom_button</item>
         <item name="android:textColor">@color/COM_NEGRO</item>
     </style>
-    <style name="CustomButtonNOC" parent="Widget.MaterialComponents.Button">
-        <item name="background">@drawable/custom_button_night</item>
-        <item name="android:textColor">@color/COM_BLANCO</item>
-    </style>
+
 </resources>
