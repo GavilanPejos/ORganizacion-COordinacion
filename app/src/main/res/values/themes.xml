@@ -20,6 +20,9 @@
         <item name="font">@font/simplysans</item>
         <item name="icon">@drawable/logonegroa</item>
 
+        <!--Chat-->
+        <item name="android:windowBackground">@color/grey</item>
+
     </style>
 
 <style name="SlideMenuAnimation" parent="Theme.ORganizacionCOordinacion">

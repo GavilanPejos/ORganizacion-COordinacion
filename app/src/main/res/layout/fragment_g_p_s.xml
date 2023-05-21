@@ -6,15 +6,17 @@
 
     <!-- Mapa de Google -->
     <com.google.android.gms.maps.MapView
+        android:contentDescription="@string/mapa_de_google"
         android:id="@+id/google_map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:enabled="true"
-        android:clickable="true" />
+        android:clickable="true"
+        android:focusable="true" />
 
-    <!-- Botón para centrar el mapa en la ubicación del usuario -->
+    <!-- Botón para centrar el mapa en la ubicación del usuario
     <Button
         android:id="@+id/btn_gps"
         android:layout_width="wrap_content"
@@ -22,6 +24,6 @@
         android:layout_gravity="end"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
-        android:text="patata" />
+        android:text="patata" />-->
 
 </LinearLayout>

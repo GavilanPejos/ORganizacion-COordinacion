@@ -6,8 +6,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!--Mio, lo que da permiso a localización-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.READ_CLIPBOARD"/>
+    <uses-permission android:name="android.permission.WRITE_CLIPBOARD"/>
+
 
     <application
         android:allowBackup="true"
@@ -43,6 +46,8 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:label="@string/title_activity_intro" />
+
+
         <!--Uso de librerias externas-->
         <uses-library
             android:name="org.apache.http.legacy"

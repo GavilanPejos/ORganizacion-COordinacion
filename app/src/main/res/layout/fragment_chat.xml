@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="UI.Fragments.FragmentChat">
+
+    <!-- TODO: Update blank fragment layout -->
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <ImageView
+           android:id="@+id/FCIV_IconoBusqueda"
+           android:layout_width="35dp"
+           android:layout_height="35dp"
+           android:layout_marginStart="20dp"
+           android:layout_marginTop="40dp"
+           android:layout_centerVertical="true"
+           android:padding="6dp"
+           android:src="@drawable/baseline_search_24"
+           android:background="@drawable/normal_circle"
+           />
+       <TextView
+           android:id="@+id/FCTV_Tittle"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Mensajiños"
+           android:textColor="@color/COM_NEGRO"
+           android:textSize="18sp"
+           android:fontFamily="@font/simplysansbold"
+           android:layout_centerInParent="true"/>
+       <de.hdodenhof.circleimageview.CircleImageView
+           android:id="@+id/FCIV_imgPerfil"
+           android:layout_width="35dp"
+           android:layout_height="35dp"
+           android:layout_marginEnd="20dp"
+           android:layout_alignParentEnd="true"
+           android:layout_marginTop="40dp"
+           android:layout_centerVertical="true"
+           android:padding="6dp"
+           android:src="@drawable/baseline_person_search_24"
+
+           app:tint="?attr/colorPrimaryVariant" />
+   </RelativeLayout>
+
+ <androidx.recyclerview.widget.RecyclerView
+     android:id="@+id/FCRV_ListaUsuarios"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     />
+
+</LinearLayout>

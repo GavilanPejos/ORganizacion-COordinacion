@@ -4,4 +4,5 @@
     <string name="EmailHint">Tu correo electrónico</string>
     <string name="password">Contraseña</string>
     <string name="hola_de_nuevo">¡Hola de nuevo!</string>
+    <string name="cuenta">Cuenta</string>
 </resources>

@@ -7,12 +7,11 @@
     android:layout_height="match_parent"
     tools:context="UI.Activities.HUDUserInterface">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/gps_fragment"
-        android:name="UI.Fragments.FragmentGPS"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_g_p_s"/>
+        android:id="@+id/HUFL_CONTAINER"
+        android:layout_above="@id/HUBN_MENU"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/HUBN_MENU"

@@ -33,10 +33,18 @@ android {
 }
 
 dependencies {
-
+    implementation platform('com.google.firebase:firebase-bom:32.0.0')
+    implementation 'com.google.firebase:firebase-analytics'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.2.2'
+    implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
+    implementation 'com.google.firebase:firebase-database-ktx:20.2.1'
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
+    implementation 'com.google.firebase:firebase-firestore:24.6.0'
+    implementation 'com.google.firebase:firebase-analytics:21.2.2'
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -49,10 +57,17 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:21.0.1'
 
     //Firebase
+    implementation 'com.google.firebase:firebase-auth:22.0.0'
     implementation 'com.google.firebase:firebase-database:20.2.1'
     implementation 'com.google.firebase:firebase-core:21.1.1'
 //Firebase-echa un cable con los permisos
     implementation 'com.karumi:dexter:6.2.3'
     //Volley
     implementation 'com.android.volley:volley:1.2.1'
+
+    //Circulito!
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //imagenes de perfil
+    implementation 'com.squareup.picasso:picasso:2.8'
 }
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "445920396921",
+    "firebase_url": "https://organizacion-coordinacion-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "organizacion-coordinacion",
+    "storage_bucket": "organizacion-coordinacion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445920396921:android:0b6b24347e32ef029eb6a8",
+        "android_client_info": {
+          "package_name": "com.jgavilan.organizacion_coordinacion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "445920396921-643f8nhh7ep96g2u07615b9br1nhc096.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx0aowdkksjgHSFef1ogSlao-UbLYiWVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "445920396921-643f8nhh7ep96g2u07615b9br1nhc096.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445920396921:android:d01d21d9aec5f61c9eb6a8",
+        "android_client_info": {
+          "package_name": "com.jmgavilan.organizacion_coordinacion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "445920396921-643f8nhh7ep96g2u07615b9br1nhc096.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx0aowdkksjgHSFef1ogSlao-UbLYiWVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "445920396921-643f8nhh7ep96g2u07615b9br1nhc096.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

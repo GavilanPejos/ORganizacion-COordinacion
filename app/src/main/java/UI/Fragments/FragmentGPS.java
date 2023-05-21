@@ -41,6 +41,7 @@ public class FragmentGPS extends Fragment implements OnMapReadyCallback {
     private GoogleMap googleMap;
     private MapView mapView;
     private FusedLocationProviderClient fusedLocationProviderClient;
+    private static final int PERMISSION_REQUEST_CODE = 123;
 
     public FragmentGPS() {
         // Required empty public constructor
@@ -68,27 +69,11 @@ public class FragmentGPS extends Fragment implements OnMapReadyCallback {
         googleMap.getUiSettings().setCompassEnabled(true);
         googleMap.getUiSettings().setMyLocationButtonEnabled(true);
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE);
             return;
         }
         googleMap.setMyLocationEnabled(true);
 
-        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
         fusedLocationProviderClient.getLastLocation().addOnSuccessListener(requireActivity(), location -> {
             if (location != null) {
                 LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
@@ -119,9 +104,38 @@ public class FragmentGPS extends Fragment implements OnMapReadyCallback {
         super.onDestroy();
         mapView.onDestroy();
     }
+
     @Override
     public void onLowMemory() {
         super.onLowMemory();
         mapView.onLowMemory();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                // Permisos otorgados, obtén la ubicación actual
+                if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
+                googleMap.setMyLocationEnabled(true);
+
+                fusedLocationProviderClient.getLastLocation().addOnSuccessListener(requireActivity(), location -> {
+                    if (location != null) {
+                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.isVisible();
+                        markerOptions.getPosition();
+
+                        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
+                        googleMap.animateCamera(cameraUpdate);
+                    }
+                });
+            } else {
+                // Permiso denegado
+                Toast.makeText(getContext(), "No se han otorgado los permisos necesarios", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

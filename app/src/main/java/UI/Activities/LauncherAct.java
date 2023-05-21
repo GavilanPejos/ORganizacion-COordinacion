@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -19,15 +20,18 @@ public class LauncherAct extends AppCompatActivity {
     ViewPager VP_SlideViewPager;
     LinearLayout LL_ARivera;
     Button BTN_skip, BTN_next, BTN_back;
-
     TextView[] puntitos;
+    private FirebaseAnalytics firebaseAnalytics;
+
     ViewPageAdapterSlider viewPageAdapterSlider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
+
         Intent intro = new Intent(this, HUDLogin.class);
+
 
         BTN_skip = findViewById(R.id.ALBTN_SKIP);
         BTN_back = findViewById(R.id.ALBTN_IZQPREV);
@@ -35,6 +39,9 @@ public class LauncherAct extends AppCompatActivity {
         VP_SlideViewPager = findViewById(R.id.ALFC_SliderContainer);
         LL_ARivera = findViewById(R.id.ALLL_linea);
         viewPageAdapterSlider = new ViewPageAdapterSlider(this);
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        firebaseAnalytics.logEvent("hola",savedInstanceState);
 
         VP_SlideViewPager.setAdapter(viewPageAdapterSlider);
 
