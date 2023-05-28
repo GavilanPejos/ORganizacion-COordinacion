@@ -76,6 +76,7 @@ public class FragmentGPS extends Fragment implements OnMapReadyCallback {
 
         fusedLocationProviderClient.getLastLocation().addOnSuccessListener(requireActivity(), location -> {
             if (location != null) {
+                //tengo que enviar la latitud y longitud del usuario y obtener la de todos los usuarios que esten dentro del mismo idgroup,siempre que la apiKey sea distinta de null
                 LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
                 MarkerOptions markerOptions = new MarkerOptions();
                 markerOptions.isVisible();

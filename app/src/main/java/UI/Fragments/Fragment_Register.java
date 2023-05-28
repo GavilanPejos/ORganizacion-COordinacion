@@ -1,10 +1,14 @@
 package UI.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +17,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,11 +25,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.jmgavilan.organizacion_coordinacion.R;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+
 import UI.Activities.HUDLogin;
+import UI.data.MemoryData;
 
 public class Fragment_Register extends Fragment {
     EditText ET_EMAIL, ET_PASS, ET_CONFIRM_PASS, ET_NAME;
@@ -58,6 +70,7 @@ public class Fragment_Register extends Fragment {
         CB_TERM = vroot.findViewById(R.id.FRCB_Terminos);
         BTN_ACPT = vroot.findViewById(R.id.FRBTN_Login);
         TV_LOG = vroot.findViewById(R.id.FRTV_INICIO);
+
 
         // Configurar click listener para el botón de aceptar
         BTN_ACPT.setOnClickListener(v -> {
@@ -132,7 +145,7 @@ public class Fragment_Register extends Fragment {
                         if (success.equals("success")) {
                             // Registro exitoso
                             Toast.makeText(getActivity().getApplicationContext(), "Registro realizado", Toast.LENGTH_SHORT).show();
-
+                            registroFirebase();
                             // Reemplazar el fragmento actual con la pantalla de inicio de sesión
                             HUDLogin activity = (HUDLogin) getActivity();
                             assert activity != null;
@@ -174,4 +187,23 @@ public class Fragment_Register extends Fragment {
     private boolean isValidEmail(String email) {
         return email.contains("@") && email.contains(".");
     }
+
+    private void registroFirebase() {
+        // Después de verificar que el registro es exitoso
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        assert firebaseUser != null;
+        String userId = firebaseUser.getUid();
+
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
+        DatabaseReference currentUserRef = usersRef.child(userId); // Utilizar el ID de usuario como referencia
+
+        currentUserRef.child("userId").setValue(userId);
+        Log.d("USERIDPROBLEMA", "registroFirebase:"+userId);
+        currentUserRef.child("groupId").setValue("0");
+        currentUserRef.child("name").setValue(name);
+        currentUserRef.child("email").setValue(email);
+        currentUserRef.child("imageUrl").setValue("https://blog.thebehemoth.com/wp-content/uploads/2014/09/cupcake-01.png");
+    }
+
+
 }

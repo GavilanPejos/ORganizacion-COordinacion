@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="UI.Activities.ActivityChat">
+
+    <!-- Encabezado del chat con nombre de usuario y foto de perfil -->
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Botón de retroceso -->
+        <ImageView
+            android:id="@+id/ACIV_BackBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/normal_circle"
+            android:paddingStart="12sp"
+            android:paddingEnd="2dp"
+            android:src="@drawable/back_btn" />
+
+        <!-- Foto de perfil -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ACCIV_profilePic"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/ACIV_BackBtn"
+            android:src="@drawable/baseline_person_24" />
+
+        <!-- Nombre de usuario -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/ACCIV_profilePic"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ACTV_NombreUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/simplysansbold"
+                android:maxLines="1"
+                android:text="@string/NewUser"
+                android:textColor="?attr/colorPrimaryVariant"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/simplysansitalic"
+                android:text="Online"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Lista de mensajes del chat -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/inputLayout"
+        android:layout_below="@+id/headerLayout"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+
+    <!-- Entrada de mensaje -->
+    <RelativeLayout
+        android:id="@+id/inputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custom_input"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <EditText
+            android:id="@+id/ACET_messageEdit"
+            android:layout_toStartOf="@id/ACIV_SendBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="@android:color/transparent"
+            android:textSize="15sp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
+            android:hint="Escribe algo..." />
+
+        <ImageView
+            android:id="@+id/ACIV_SendBtn"
+            android:src="@drawable/baseline_send_24"
+            app:tint="?attr/colorSecondaryVariant"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -72,10 +72,11 @@ public class HUDLogin extends AppCompatActivity {
                 break;
             case "forget":
                 fragment = new Fragment_ForgetPass();
+
                 break;
             case "register":
                 fragment = new Fragment_Register();
-                break;
+                 break;
         }
 
         //Obtiene el administrador de fragmentos

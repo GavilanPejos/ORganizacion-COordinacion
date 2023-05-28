@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +7,11 @@
     tools:context="UI.Fragments.FragmentChat">
 
     <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
    <RelativeLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
@@ -45,9 +50,12 @@
    </RelativeLayout>
 
  <androidx.recyclerview.widget.RecyclerView
+     android:paddingHorizontal="16dp"
+     android:clickable="true"
+     android:orientation="vertical"
      android:id="@+id/FCRV_ListaUsuarios"
      android:layout_width="match_parent"
-     android:layout_height="match_parent"
+     android:layout_height="wrap_content"
      />
-
-</LinearLayout>
+    </LinearLayout>/
+</RelativeLayout>

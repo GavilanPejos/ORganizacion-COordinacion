@@ -9,158 +9,103 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/FRTV_Tittle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Registro"
-            android:fontFamily="@font/simplysansbold"
-            android:textSize="20sp"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0" />
-        <TextView
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:gravity="start"
-            android:id="@+id/FRTV_Name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Nombre de usuario"
-
-            app:layout_constraintVertical_bias="0.02"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/FRTV_Tittle"/>
-
         <EditText
             android:background="?attr/editTextBackground"
+            android:textColor="?android:textColor"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:textColor="@color/COM_NEGRO"
-            android:hint=""
+            android:hint="Nombre de usuario"
             android:id="@+id/FRET_Name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress"
-
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintBottom_toTopOf="@id/FRET_Email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/FRTV_Name"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        <TextView
+        <EditText
+            android:background="?attr/editTextBackground"
+            android:textColor="?android:textColor"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:gravity="start"
-            android:id="@+id/FRTV_Email"
+            android:hint="Dirección de correo electrónico"
+            android:id="@+id/FRET_Email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/email"
-
-            app:layout_constraintVertical_bias="0.02"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintBottom_toTopOf="@id/FRET_Password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/FRET_Name"/>
 
         <EditText
             android:background="?attr/editTextBackground"
-            android:textColor="@color/COM_NEGRO"
+            android:textColor="?android:textColor"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:hint=""
-            android:id="@+id/FRET_Email"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/FRTV_Email"/>
-
-
-        <TextView
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:id="@+id/FRTV_Password"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/password"
-            app:layout_constraintVertical_bias="0.02"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/FRET_Email"/>
-
-        <EditText
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:background="?attr/editTextBackground"
-            android:textColor="@color/COM_NEGRO"
-            android:hint=""
+            android:hint="Contraseña"
             android:id="@+id/FRET_Password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
-
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintBottom_toTopOf="@id/FRET_Confirm_Password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/FRTV_Password"
-            />
-        <TextView
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:id="@+id/FRTV_Confirm_Password"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Confirmar contraseña"
-            app:layout_constraintVertical_bias="0.02"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/FRET_Password"/>
+            app:layout_constraintTop_toBottomOf="@id/FRET_Email"/>
 
         <EditText
+            android:background="?attr/editTextBackground"
+            android:textColor="?android:textColor"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:textColor="@color/COM_NEGRO"
-            android:background="?attr/editTextBackground"
-            android:hint=""
+            android:hint="Confirmar contraseña"
             android:id="@+id/FRET_Confirm_Password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
-
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintBottom_toTopOf="@id/FRET_Equipo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/FRTV_Confirm_Password"
-            />
+            app:layout_constraintTop_toBottomOf="@id/FRET_Password"/>
+
+        <EditText
+            android:background="?attr/editTextBackground"
+            android:textColor="?android:textColor"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:hint="Código de Equipo"
+            android:id="@+id/FRET_Equipo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintBottom_toTopOf="@id/FRCB_Terminos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/FRET_Confirm_Password"/>
+
         <CheckBox
             android:id="@+id/FRCB_Terminos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Estoy de acuerdo con los Términos de Servicio y Politicas de Privacidad."
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Estoy de acuerdo con los Términos de Servicio y Políticas de Privacidad."
+            android:textColor="?android:textColor"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintBottom_toTopOf="@id/FRBTN_Login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/FRET_Confirm_Password"/>
+            app:layout_constraintTop_toBottomOf="@id/FRET_Equipo"/>
+
         <androidx.appcompat.widget.AppCompatButton
             android:background="?attr/background"
             android:textAllCaps="false"
@@ -168,13 +113,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/iniciar_sesion"
-
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="?android:textColor"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintBottom_toTopOf="@id/FRTV_INICIO"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/FRCB_Terminos"
-            />
+            app:layout_constraintTop_toBottomOf="@id/FRCB_Terminos"/>
 
         <TextView
             android:id="@+id/FRTV_INICIO"
@@ -182,12 +126,12 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="Tienes ya una cuenta?\nInicia sesión"
-            app:layout_constraintVertical_bias="0.8"
+            android:textColor="?android:textColor"
+            app:layout_constraintVertical_bias="0.2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/FRBTN_Login"/>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

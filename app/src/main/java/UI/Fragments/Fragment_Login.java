@@ -43,12 +43,12 @@ import UI.Activities.HUDUserInterface;
 public class Fragment_Login extends Fragment {
     // Declaración de atributos
     EditText ET_EMAIL, ET_PASS;
-    String name, email, pass, apiKey;
+    String name, email, pass, apiKey, nombreGrupo;
     Button BTN_LOG;
     TextView TV_FORGET, TV_NEWUSER;
     final static String URL_LOCAL = "http://192.168.0.17:8080/orco_db";
     final static String ubicacion = "login";
-    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences, sharedPreferencesGroup;
     private FirebaseAuth mAuth;
 
     public Fragment_Login() {
@@ -84,6 +84,7 @@ public class Fragment_Login extends Fragment {
         TV_FORGET = vroot.findViewById(R.id.FLTV_ForgetPass);
         TV_NEWUSER = vroot.findViewById(R.id.FLTV_NewUser);
         sharedPreferences = requireActivity().getSharedPreferences("ORCO", Context.MODE_PRIVATE);
+        sharedPreferencesGroup = requireActivity().getSharedPreferences("ORCOGroup", Context.MODE_PRIVATE);
     }
 
     // Método para verificar si ya se ha iniciado sesión anteriormente y redirigir al usuario a la pantalla principal si es así
@@ -110,12 +111,12 @@ public class Fragment_Login extends Fragment {
             RequestQueue queue = Volley.newRequestQueue(vroot.getContext());
             String urlregister = URL_LOCAL + "/login.php"; // Ctr+click te mete dentro
 
+
             StringRequest stringRequest = new StringRequest(Request.Method.POST, urlregister,
                     success -> {
                         try {
                             JSONObject jsonObject = new JSONObject(success);
                             String status = jsonObject.getString("status");
-                            String message = jsonObject.getString("message");
                             if (status.equals("success")) {
                                 saveUserCredentials(jsonObject);
                             } else {
@@ -139,8 +140,11 @@ public class Fragment_Login extends Fragment {
             };
 
             queue.add(stringRequest);
+
+
         });
     }
+
 
     // Método para validar los campos de entrada
     private boolean validateFields() {
@@ -166,13 +170,16 @@ public class Fragment_Login extends Fragment {
     private void saveUserCredentials(JSONObject jsonObject) throws JSONException {
 
         email = jsonObject.getString("email");
-        pass=jsonObject.getString("pass");
+        pass = jsonObject.getString("pass");
+        name = jsonObject.getString("name");
+        apiKey = jsonObject.getString("apiKey");
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("logged", "true");
         editor.putString("email", email);
         editor.putString("pass", pass);
+        editor.putString("name", name);
+        editor.putString("apiKey", apiKey);
 
-        System.out.println(email+pass+"555555555555555555555555555555555555555555555555");
         editor.apply();
 
         // Realizar registro en googleAuthentication
@@ -181,19 +188,23 @@ public class Fragment_Login extends Fragment {
         if (registrationSuccess) {
             // Registro exitoso, navegar a la siguiente actividad
             navigateToNextActivity();
+            requireActivity().finish();
         } else {
             // Registro fallido debido a que el usuario ya está registrado, continuar con el flujo
             continueWithFlow();
         }
     }
 
+
+
+
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            reload();
+        if (currentUser != null) {
+            //      reload();
         }
     }
 
@@ -215,11 +226,11 @@ public class Fragment_Login extends Fragment {
     private void updateUI(FirebaseUser user) {
         if (user != null) {
             // El usuario está autenticado correctamente, realizar acciones en la interfaz de usuario
-            // por ejemplo, navegar a la siguiente actividad o mostrar información del usuario
+
             navigateToNextActivity();
         } else {
             // El usuario no está autenticado, realizar acciones en la interfaz de usuario
-            // por ejemplo, mostrar un mensaje de error o limpiar los campos de entrada
+
             Toast.makeText(requireContext(), "Error de autenticación", Toast.LENGTH_SHORT).show();
             ET_EMAIL.setText("");
             ET_PASS.setText("");
@@ -233,18 +244,18 @@ public class Fragment_Login extends Fragment {
                     .addOnCompleteListener(requireActivity(), task -> {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
+
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+
                             Toast.makeText(requireContext(), "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
                     });
-        }catch (Exception e){
+        } catch (Exception e) {
 
             Log.e(TAG, "Error al registrar en Google Authentication", e);
 

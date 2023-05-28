@@ -9,17 +9,16 @@
 
 
     <!-- Colores en el modo nocturno -->
-    <color name="NOC_PRIMARIO">#1c1c1c</color>
-    <color name="NOC_SECUNDARIO">#9b111e</color>
-    <color name="NOC_TERCIARIO">#232323</color>
-    <color name="NOC_STATUS">#efb810</color>
-    <color name="NOC_CIRCLE">#dbae24</color>
+    <color name="NOC_PRIMARIO">#1C1C1C</color>
+    <color name="NOC_SECUNDARIO">#333333</color>
+    <color name="NOC_TERCIARIO">#262626</color>
+    <color name="NOC_STATUS">#434343</color>
+    <color name="NOC_CIRCLE">#1F1F1F</color>
 
     <!-- Colores Comunes -->
     <color name="COM_NEGRO">#FF000000</color>
     <color name="COM_BLANCO">#FFFFFFFF</color>
-        <!--ChatApp-->
-    <color name="lavender">#8692f7</color>
+
     <color name="grey">#d2d2d2</color>
 
 

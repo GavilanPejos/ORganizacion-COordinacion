@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+android:clickable="true"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    >
 
     <LinearLayout
         android:id="@+id/AMLLL_LinearLayoutMaestro"
@@ -60,9 +65,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/custom_circle"
+                android:background="@drawable/normal_circle"
                 android:gravity="center"
-                android:text="1" />
+                android:text="" />
         </RelativeLayout>
 
     </LinearLayout>

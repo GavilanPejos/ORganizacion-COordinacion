@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_enabled="true" android:state_focused="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/COM_BLANCO" />
+            <solid android:color="?attr/colorPrimary" />
             <corners android:radius="5dp" />
             <stroke android:width="1dp" android:color="?attr/colorPrimary" />
         </shape>
@@ -10,7 +10,7 @@
 
     <item android:state_enabled="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/COM_BLANCO" />
+            <solid android:color="?attr/colorPrimary" />
             <corners android:radius="5dp" />
             <stroke android:width="1dp" android:color="?attr/colorPrimary" />
         </shape>
