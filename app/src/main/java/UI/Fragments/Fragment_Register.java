@@ -39,8 +39,8 @@ import UI.Activities.HUDLogin;
 import UI.data.MemoryData;
 
 public class Fragment_Register extends Fragment {
-    EditText ET_EMAIL, ET_PASS, ET_CONFIRM_PASS, ET_NAME;
-    String email, pass, name;
+    EditText ET_EMAIL, ET_PASS, ET_CONFIRM_PASS, ET_NAME,ET_GROUPID;
+    String email, pass, name,grupo;
     Button BTN_ACPT;
     CheckBox CB_TERM;
     TextView TV_LOG;
@@ -70,7 +70,7 @@ public class Fragment_Register extends Fragment {
         CB_TERM = vroot.findViewById(R.id.FRCB_Terminos);
         BTN_ACPT = vroot.findViewById(R.id.FRBTN_Login);
         TV_LOG = vroot.findViewById(R.id.FRTV_INICIO);
-
+        ET_GROUPID=vroot.findViewById(R.id.FRET_Equipo);
 
         // Configurar click listener para el botón de aceptar
         BTN_ACPT.setOnClickListener(v -> {
@@ -105,6 +105,7 @@ public class Fragment_Register extends Fragment {
         name = ET_NAME.getText().toString().trim();
         email = ET_EMAIL.getText().toString().trim();
         pass = ET_PASS.getText().toString().trim();
+        grupo=ET_GROUPID.getText().toString().trim();
 
         if (name.isEmpty() || email.isEmpty() || pass.isEmpty()) {
             // Uno o más campos están vacíos
@@ -189,7 +190,7 @@ public class Fragment_Register extends Fragment {
     }
 
     private void registroFirebase() {
-        // Después de verificar que el registro es exitoso
+        // Después de verificar que el registro es exitoso Realiza el registro en Firebase
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         assert firebaseUser != null;
         String userId = firebaseUser.getUid();
@@ -199,10 +200,12 @@ public class Fragment_Register extends Fragment {
 
         currentUserRef.child("userId").setValue(userId);
         Log.d("USERIDPROBLEMA", "registroFirebase:"+userId);
-        currentUserRef.child("groupId").setValue("0");
+        currentUserRef.child("groupId").setValue(grupo);
         currentUserRef.child("name").setValue(name);
         currentUserRef.child("email").setValue(email);
         currentUserRef.child("imageUrl").setValue("https://blog.thebehemoth.com/wp-content/uploads/2014/09/cupcake-01.png");
+        currentUserRef.child("UserLatitude").setValue("0");
+        currentUserRef.child("UserLongitude").setValue("0");
     }
 
 

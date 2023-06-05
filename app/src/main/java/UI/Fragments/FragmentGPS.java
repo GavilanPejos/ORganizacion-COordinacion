@@ -27,6 +27,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.jmgavilan.organizacion_coordinacion.R;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
@@ -35,13 +41,20 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
+import UI.Activities.HUDUserInterface;
+
 
 public class FragmentGPS extends Fragment implements OnMapReadyCallback {
 
     private GoogleMap googleMap;
     private MapView mapView;
     private FusedLocationProviderClient fusedLocationProviderClient;
+    HUDUserInterface HUDUI;
     private static final int PERMISSION_REQUEST_CODE = 123;
+    String idgroup, userId;
+    String locationLatitude;
+    String locationLongitude;
+    DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
 
     public FragmentGPS() {
         // Required empty public constructor
@@ -57,8 +70,40 @@ public class FragmentGPS extends Fragment implements OnMapReadyCallback {
         mapView.onResume();
         mapView.getMapAsync(this);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext());
+        enviarLocalizacion();
 
         return view;
+    }
+
+    private void enviarLocalizacion() {
+        //Primero obtener UID del usuario, luego el grupo, obtener todos los UID de los usuarios de ese grupo, actualizar la latLang y lat Long de cada user.
+
+
+        Query query = usersRef.orderByChild("groupId").equalTo(String.valueOf(HUDUI.idGrupo));
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot userSnapshot : snapshot.getChildren()) {
+                    userId = userSnapshot.child("userId").getValue(String.class);
+                    locationLatitude = userSnapshot.child("UserLatitude").getValue(String.class);
+                    locationLongitude = userSnapshot.child("UserLongitude").getValue(String.class);
+
+                    // Crear un objeto LatLng con las coordenadas
+                    LatLng userLatLng = new LatLng(Double.parseDouble(locationLatitude), Double.parseDouble(locationLongitude));
+
+                    // Añadir un marcador en el mapa para el usuario
+                    MarkerOptions markerOptions = new MarkerOptions()
+                            .position(userLatLng)
+                            .title(userId);
+                    googleMap.addMarker(markerOptions);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
@@ -76,6 +121,13 @@ public class FragmentGPS extends Fragment implements OnMapReadyCallback {
 
         fusedLocationProviderClient.getLastLocation().addOnSuccessListener(requireActivity(), location -> {
             if (location != null) {
+                locationLatitude = String.valueOf(location.getLatitude());
+                locationLongitude = String.valueOf(location.getLongitude());
+                usersRef.child(userId).child("UserLatitude").setValue(locationLatitude);
+                usersRef.child(userId).child("UserLongitude").setValue(locationLongitude);
+
+                DatabaseReference currentUserRef = usersRef.child(userId); // Utilizar el ID de usuario como referencia
+
                 //tengo que enviar la latitud y longitud del usuario y obtener la de todos los usuarios que esten dentro del mismo idgroup,siempre que la apiKey sea distinta de null
                 LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
                 MarkerOptions markerOptions = new MarkerOptions();

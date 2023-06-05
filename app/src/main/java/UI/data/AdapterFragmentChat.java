@@ -1,5 +1,6 @@
 package UI.data;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +42,7 @@ public class AdapterFragmentChat extends RecyclerView.Adapter<RecyclerView.ViewH
 
     // Método para asignar los datos a un ViewHolder según su posición
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         if (holder instanceof UserViewHolder) {
             // Asignar datos de usuario a la vista
             bindUsuario((UserViewHolder) holder, position);

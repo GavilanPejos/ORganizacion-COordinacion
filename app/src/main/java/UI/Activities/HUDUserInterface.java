@@ -34,7 +34,7 @@ import UI.Fragments.FragmentUserMain;
 public class HUDUserInterface extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     FirebaseAuth firebaseAuth;
-    String idGrupo;
+    public String idGrupo;
     SharedPreferences sharedPreferences, sharedPreferencesGroup;
     final static String URL_LOCAL = "http://192.168.0.17:8080/orco_db";
 

@@ -40,7 +40,7 @@ public class HUDLogin extends AppCompatActivity {
         Intent startIntent = new Intent(getApplicationContext(), BackgroundMusic.class);
         startService(startIntent);
         //Reproduce la música de fondo
-      //  reproducir();
+        reproducir();
     }
 
     //Reproductor de música de fondo
